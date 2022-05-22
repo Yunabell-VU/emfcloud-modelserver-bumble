@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape:Shape
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:shape="http://www.example.org/shape"
+    xsi:schemaLocation="http://www.example.org/shape shape.ecore">
+  <polygon Edges="6"
+      id="1"/>
+  <square Area="30"
+      id="2"/>
+  <circle Circumference="45"
+      id="3"/>
+</shape:Shape>

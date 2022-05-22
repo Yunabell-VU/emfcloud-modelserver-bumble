@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<animal:Animal
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:animal="http://www.example.org/animal"
+    xsi:schemaLocation="http://www.example.org/animal animal.ecore">
+  <duck id="1"
+      beakColor="black"/>
+  <lion id="2"
+      weight="200"/>
+  <lion id="4"
+      weight="350"/>
+  <zebra id="3"
+      length="130"/>
+</animal:Animal>
