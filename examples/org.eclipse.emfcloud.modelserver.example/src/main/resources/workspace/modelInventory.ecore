@@ -6,8 +6,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="language" upperBound="-1"
         eType="#//Language" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="model" upperBound="-1"
-        eType="#//Model" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="collaborationSessions"
         upperBound="-1" eType="#//CollaborationSession" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="users" upperBound="-1"
@@ -16,6 +14,13 @@
         eType="#//Driver" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actionproviders" upperBound="-1"
         eType="#//ActionProvider" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="persistenceStrategy" eType="#//PersistenceStrategyType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" upperBound="-1"
+        eType="#//Model" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="editAdapters" upperBound="-1"
+        eType="#//EditAdapter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="identityresolvers" upperBound="-1"
+        eType="#//IdentityResolver" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Language">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -30,6 +35,11 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="confirmsTo" lowerBound="1"
         eType="#//Language"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdBy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actionproviders" lowerBound="1"
+        upperBound="-1" eType="#//ActionProvider"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="driver" lowerBound="1"
+        eType="#//Driver"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CollaborationSession">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -37,6 +47,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="endTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="participants" upperBound="-1"
         eType="#//Participant" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="has" lowerBound="1" eType="#//Model"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Editor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -60,10 +71,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="User">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="email" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emailAddress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="models" upperBound="-1"
-        eType="#//Model" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owns" upperBound="-1" eType="#//Model"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Driver">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -77,5 +87,19 @@
     <eLiterals name="bmp"/>
     <eLiterals name="png" value="1"/>
     <eLiterals name="jpeg" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PersistenceStrategyType">
+    <eLiterals name="ONDEMAND"/>
+    <eLiterals name="AUTOMATIC" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EditAdapter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="adaptedLanguages" lowerBound="2"
+        upperBound="2" eType="#//Editor"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IdentityResolver">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -14,6 +14,7 @@ import static org.eclipse.emfcloud.modelserver.common.ModelServerPathParametersV
 import static org.eclipse.emfcloud.modelserver.common.ModelServerPathParametersV2.FORMAT_JSON_V2;
 import static org.eclipse.emfcloud.modelserver.common.ModelServerPathParametersV2.FORMAT_XMI;
 import static org.eclipse.emfcloud.modelserver.common.ModelServerPathParametersV2.PATHS_URI_FRAGMENTS;
+import static org.eclipse.emfcloud.modelserver.example.UpdateTaskNameCommandContribution.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -216,7 +217,7 @@ public final class ExampleModelServerClient {
 
    private static void handleUpdateTasks(final ModelServerClient client, final String[] commandAndArgs)
       throws InterruptedException, ExecutionException, TimeoutException {
-      CCommand command = UpdateTaskNameCommandContribution.clientCommand(commandAndArgs[1]);
+      CCommand command = clientCommand(commandAndArgs[1]);
       Response<String> response = client.edit(SUPER_BREWER_3000_JSON, command, FORMAT_JSON_V2).join();
       System.out.println("< " + toString(response));
    }
