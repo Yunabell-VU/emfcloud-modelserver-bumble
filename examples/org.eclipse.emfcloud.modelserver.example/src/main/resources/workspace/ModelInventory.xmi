@@ -19,7 +19,9 @@
   </language>
   <collaborationSessions
       id="1"
-      has="0-476-27557-4">
+      startTime="1656225690"
+      endTime="1656225930"
+      has="ModelAnimal.xmi">
     <participants
         user="//@users.0"
         role="INITIATOR"/>
@@ -30,7 +32,9 @@
   </collaborationSessions>
   <collaborationSessions
       id="2"
-      has="0-786-27557-4">
+      startTime="1656053130"
+      endTime="1656053430"
+      has="ModelShape.xmi">
     <participants
         user="//@users.1"
         role="INITIATOR"/>
@@ -41,7 +45,7 @@
       name="Alice"
       emailAddress="alice@abc.com"
       password="alice"
-      owns="0-786-27557-4"/>
+      owns="ModelShape.xmi"/>
   <users id="2"
       name="Bob"/>
   <users id="3"
@@ -53,11 +57,11 @@
       name="ConsistencyChecker"/>
   <model name="ModelShape"
       location="Git"
-      uri="0-786-27557-4"
+      uri="ModelShape.xmi"
       confirmsTo="//@language.0"/>
   <model name="ModelAnimal"
       location="Git"
-      uri="0-476-27557-4"
+      uri="ModelAnimal.xmi"
       confirmsTo="//@language.1"
       createdBy="Bob"/>
   <editAdapters
