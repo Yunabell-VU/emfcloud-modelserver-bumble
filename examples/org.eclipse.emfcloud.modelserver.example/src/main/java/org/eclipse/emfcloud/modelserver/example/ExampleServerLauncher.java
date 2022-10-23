@@ -25,11 +25,13 @@ public final class ExampleServerLauncher {
    private static final String TEMP_DIR = ".temp";
    private static final String WORKSPACE_ROOT = "workspace";
    private static final String ECORE_TEST_FILE = "Coffee.ecore";
+   private static final String ECORE_STATE_MACHINE_FILE = "statemachine.ecore";
    private static final String COFFEE_TEST_FILE = "SuperBrewer3000.coffee";
    private static final String JSON_TEST_FILE = "SuperBrewer3000.json";
 
    private static final String ECORE_TEST_FILE_ANIMAL = "animal.ecore";
    private static final String XMI_TEST_FILE_ANIMAL = "ModelAnimal.xmi";
+   private static final String XMI_STATE_MACHINE_FILE = "StateMachine.xmi";
 
    private static final String ECORE_TEST_FILE_SHAPE = "shape.ecore";
    private static final String XMI_TEST_FILE_SHAPE = "ModelShape.xmi";
@@ -96,6 +98,8 @@ public final class ExampleServerLauncher {
       boolean result = workspaceRoot.mkdirs();
       result &= ResourceUtil.copyFromResource(WORKSPACE_ROOT + "/" + ECORE_TEST_FILE,
               new File(workspaceRoot, ECORE_TEST_FILE));
+      result &= ResourceUtil.copyFromResource(WORKSPACE_ROOT + "/" + ECORE_STATE_MACHINE_FILE,
+              new File(workspaceRoot, ECORE_STATE_MACHINE_FILE));
       result &= result && ResourceUtil.copyFromResource(WORKSPACE_ROOT + "/" + COFFEE_TEST_FILE,
               new File(workspaceRoot, COFFEE_TEST_FILE));
       result &= result && ResourceUtil.copyFromResource(WORKSPACE_ROOT + "/nested/" + COFFEE_TEST_FILE,
@@ -107,6 +111,8 @@ public final class ExampleServerLauncher {
               new File(workspaceRoot, ECORE_TEST_FILE_ANIMAL));
       result &= result && ResourceUtil.copyFromResource(WORKSPACE_ROOT + "/" + XMI_TEST_FILE_ANIMAL,
               new File(workspaceRoot, XMI_TEST_FILE_ANIMAL));
+      result &= result && ResourceUtil.copyFromResource(WORKSPACE_ROOT + "/" + XMI_STATE_MACHINE_FILE,
+              new File(workspaceRoot, XMI_STATE_MACHINE_FILE));
 
       result &= result && ResourceUtil.copyFromResource(WORKSPACE_ROOT + "/" + ECORE_TEST_FILE_SHAPE,
               new File(workspaceRoot, ECORE_TEST_FILE_SHAPE));
